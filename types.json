@@ -6,12 +6,14 @@
           "String"
         ]
       },
-      "expected": [{
-        "address": "String",
-        "balance": "Number",
-        "totalReceived": "Number",
-        "txCount": "Number"
-      }]
+      "expected": [
+        {
+          "address": "String",
+          "balance": "Number",
+          "totalReceived": "Number",
+          "txCount": "Number"
+        }
+      ]
     },
     "transactions": {
       "arguments": {
@@ -74,7 +76,7 @@
       "expected": {}
     },
     "transactions": {
-      "arguments": [{
+      "arguments": {
         "blockIds": [
           "String"
         ]
