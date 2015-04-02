@@ -96,10 +96,12 @@
           "String"
         ]
       },
-      "expected": {
-        "txHex": "String",
-        "txId": "String"
-      }
+      "expected": [
+        {
+          "txHex": "String",
+          "txId": "String"
+        }
+      ]
     },
     "latest": {
       "arguments": {},
@@ -140,10 +142,12 @@
           "String"
         ]
       },
-      "expected": {
-        "blockId": "?String",
-        "txId": "String"
-      }
+      "expected": [
+        {
+          "blockId": "?String",
+          "txId": "String"
+        }
+      ]
     }
   }
 }
