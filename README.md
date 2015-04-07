@@ -49,10 +49,8 @@ Subjective to the node.
 ``` javascript
 [
 	{
-		txId: "c7736a0a0046d5a8cc61c8c3c2821d4d7517f5de2bc66a966011aaa79965ffba",
-		txHex: "01000000011c1020c1114820e7c44e12e804aec5f4af1e8a6aad3c446c4cfc8aa53e61f73d010000008 ...",
 		blockId: "00000000000000001b701ecd0cf2b7a7742a320e9a06a506227ee345b5735d13",
-		blockHeight: 318573
+		txId: "c7736a0a0046d5a8cc61c8c3c2821d4d7517f5de2bc66a966011aaa79965ffba"
 	},
 	...
 ]
@@ -111,10 +109,7 @@ Returns the tip of the nodes best-chain
 Subjective to the node.
 
 ``` javascript
-{
-	"blockHex": "020000003bef0d0b88737698572aa5c78 ...",
-	"blockId": "00000000000000001b701ecd0cf2b7a7742a320e9a06a506227ee345b5735d13"
-}
+"00000000000000001b701ecd0cf2b7a7742a320e9a06a506227ee345b5735d13"
 ```
 
 
@@ -165,16 +160,13 @@ Idempotent.
 
 #### Transactions.Latest
 
-Returns the latest unconfirmed transactions
+Returns a list of the latest unconfirmed transactions ids,  equivalent to this nodes mempool
 
 Subjective to the node.
 
 ``` javascript
 [
-	{
-		txHex: "01000000011c1020c1114820e7c44e12e804aec5f4af1e8a6aad3c446c4cfc8aa53e61f73d010000008 ...",
-		txId: "c7736a0a0046d5a8cc61c8c3c2821d4d7517f5de2bc66a966011aaa79965ffba"
-	},
+	"c7736a0a0046d5a8cc61c8c3c2821d4d7517f5de2bc66a966011aaa79965ffba"
 	...
 ]
 ```

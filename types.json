@@ -24,9 +24,7 @@
       },
       "expected": [
         {
-          "blockHeight": "?Number",
           "blockId": "?String",
-          "txHex": "String",
           "txId": "String"
         }
       ]
