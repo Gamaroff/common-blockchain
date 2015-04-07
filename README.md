@@ -160,7 +160,7 @@ Idempotent.
 
 #### Transactions.Latest
 
-Returns a list of the latest unconfirmed transactions ids,  equivalent to this nodes mempool
+Returns a list of the latest unconfirmed transactions ids, equivalent to this nodes mempool.
 
 Subjective to the node.
 

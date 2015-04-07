@@ -62,10 +62,7 @@
     },
     "latest": {
       "arguments": {},
-      "expected": {
-        "blockHex": "String",
-        "blockId": "String"
-      }
+      "expected": "String"
     },
     "propagate": {
       "arguments": {
@@ -106,10 +103,7 @@
     "latest": {
       "arguments": {},
       "expected": [
-        {
-          "txHex": "String",
-          "txId": "String"
-        }
+        "String"
       ]
     },
     "outputs": {
