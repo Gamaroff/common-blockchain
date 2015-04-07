@@ -84,7 +84,7 @@ Subjective to the node.
 
 ### Blocks
 
-`blockHex` is hex string for the binary representation of the block headers.  Transactions can be retrieved via the `Blocks.Transactions` end point. 
+`blockHex` is the hex representation of the respective block header.  Transactions are not included; however they can be retrieved independently via the `Blocks.Transactions` end point. 
 
 
 #### Blocks.Get
