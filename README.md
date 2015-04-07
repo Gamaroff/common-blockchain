@@ -39,10 +39,10 @@ Subjective to the node.
 
 #### Addresses.Transactions
 
-**Parameters**: Array of addresses, (optional) minimum block hash/height
+**Parameters**: Array of addresses, (optional) minimum block id
 
 Returns a array of transactions related to this Address (as an input or output).
-Optionally filtered by a minimum block hash/height.
+Optionally filtered by a minimum block id.
 
 Subjective to the node.
 
@@ -55,6 +55,9 @@ Subjective to the node.
 	...
 ]
 ```
+
+If the minimum block id is unknown, an `Error` object must be returned with the message: `Unknown blockId: <blockId>`
+If the minimum block id has been orphaned, an `Error` object must be returned with the message: `Orphaned blockId: <blockId>`
 
 
 #### Addresses.Unspents
