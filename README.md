@@ -44,7 +44,7 @@ Subjective to the node.
 Returns a array of transactions related to this Address (as an input or output).
 Optionally filtered by a minimum block hash/height.
 
-Block information is subjective to the node.
+Subjective to the node.
 
 ``` javascript
 [
@@ -84,7 +84,7 @@ Subjective to the node.
 
 ### Blocks
 
-`blockHex` is the hex representation of the respective block header.  Transactions are not included; however they can be retrieved independently via the `Blocks.Transactions` end point. 
+`blockHex` is the hex representation of the respective block header.  Transactions are not included; however they can be retrieved independently via the `Blocks.Transactions` end point.
 
 
 #### Blocks.Get
