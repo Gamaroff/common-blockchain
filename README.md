@@ -94,6 +94,7 @@ Idempotent.
 ``` javascript
 [
 	{
+		"blockHeight": 314246,
 		"blockHex": "020000003bef0d0b88737698572aa5c78 ...",
 		"blockId": "00000000000000001b701ecd0cf2b7a7742a320e9a06a506227ee345b5735d13"
 	}

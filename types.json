@@ -55,6 +55,7 @@
       },
       "expected": [
         {
+          "blockHeight": "Number",
           "blockHex": "String",
           "blockId": "String"
         }
