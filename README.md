@@ -36,6 +36,8 @@ Subjective to the node.
 ]
 ```
 
+If the any address is badly formatted or the wrong network, an `Error` must be returned with the message: `<address> is not a valid bitcoin address`
+
 
 #### Addresses.Transactions
 
@@ -56,8 +58,9 @@ Subjective to the node.
 ]
 ```
 
-If the minimum block id is unknown, an `Error` object must be returned with the message: `Unknown blockId: <blockId>`
-If the minimum block id has been orphaned, an `Error` object must be returned with the message: `Orphaned blockId: <blockId>`
+If the minimum block id is unknown, an `Error` must be returned with the message: `Unknown blockId: <blockId>`
+If the minimum block id has been orphaned, an `Error` must be returned with the message: `Orphaned blockId: <blockId>`
+If the any address is badly formatted or the wrong network, an `Error` must be returned with the message: `<address> is not a valid bitcoin address`
 
 
 #### Addresses.Unspents
@@ -82,6 +85,8 @@ Subjective to the node.
 ]
 ```
 
+If the any address is badly formatted or the wrong network, an `Error` must be returned with the message: `<address> is not a valid bitcoin address`
+
 
 ### Blocks
 
@@ -105,6 +110,8 @@ Idempotent.
 ]
 ```
 
+If any block id is unknown, an `Error` must be returned with the message: `Unknown blockId: <blockId>`
+
 
 #### Blocks.Latest
 
@@ -125,6 +132,9 @@ Subjective to the node.
 No response body
 ```
 
+If the block hex is badly formatted, an `Error` must be returned with the message: `Invalid blockHex`
+If the block hex is rejected, an `Error` must be returned with the message: `Block rejected: <reason, if known>`
+
 
 #### Blocks.Transactions
 
@@ -141,6 +151,8 @@ Idempotent.
 	...
 ]
 ```
+
+If any block id is unknown, an `Error` must be returned with the message: `Unknown blockId: <blockId>`
 
 
 ### Transactions
@@ -160,6 +172,8 @@ Idempotent.
 	...
 ]
 ```
+
+If any transaction id is unknown, an `Error` must be returned with the message: `Unknown txId: <txId>`
 
 
 #### Transactions.Latest
@@ -194,6 +208,8 @@ Idempotent.
 ]
 ```
 
+If any transaction output is unknown, an `Error` must be returned with the message: `Unknown output: <txId>:<vout>`
+
 
 #### Transactions.Propagate
 
@@ -202,6 +218,8 @@ Idempotent.
 ``` javascript
 No response body
 ```
+
+If the transaction hex is rejected, an `Error` must be returned with the message: `Transaction rejected: <reason, if known>`
 
 
 #### Transactions.Status
@@ -223,3 +241,5 @@ Subjective to the node.
 	...
 ]
 ```
+
+If any transaction id is unknown, an `Error` must be returned with the message: `Unknown txId: <txId>`
