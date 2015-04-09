@@ -36,7 +36,7 @@ Subjective to the node.
 ]
 ```
 
-If the any address is badly formatted or the wrong network, an `Error` must be returned with the message: `<address> is not a valid <network> address`
+If any address is badly formatted or of the wrong network, an `Error` must be returned with the message: `{{address}} is not a valid {{network}} address`
 
 
 #### Addresses.Transactions
@@ -58,8 +58,9 @@ Subjective to the node.
 ]
 ```
 
-If the minimum block id is unknown, an `Error` must be returned with the message: `Unknown blockId: <blockId>, it may have been orphaned`
-If the any address is badly formatted or the wrong network, an `Error` must be returned with the message: `<address> is not a valid bitcoin address`
+If any address is badly formatted or of the wrong network, an `Error` must be returned with the message: `{{address}} is not a valid {{network}} address`
+If the minimum block id is badly formatted, an `Error` must be returned with the message: `{{blockId}} is not a valid 256-bit big-endian hash`
+If the minimum block id is unknown, an `Error` must be returned with the message: `Unknown blockId: {{blockId}}, it may have been orphaned`
 
 
 #### Addresses.Unspents
@@ -84,7 +85,7 @@ Subjective to the node.
 ]
 ```
 
-If the any address is badly formatted or the wrong network, an `Error` must be returned with the message: `<address> is not a valid bitcoin address`
+If any address is badly formatted or of the wrong network, an `Error` must be returned with the message: `{{address}} is not a valid {{network}} address`
 
 
 ### Blocks
@@ -109,7 +110,8 @@ Idempotent.
 ]
 ```
 
-If any block id is unknown, an `Error` must be returned with the message: `Unknown blockId: <blockId>`
+If any block id is badly formatted, an `Error` must be returned with the message: `{{blockId}} is not a valid 256-bit big-endian hash`
+If any block id is unknown, an `Error` must be returned with the message: `Unknown blockId: {{blockId}}, it may have been orphaned`
 
 
 #### Blocks.Latest
@@ -132,7 +134,7 @@ No response body
 ```
 
 If the block hex is badly formatted, an `Error` must be returned with the message: `Invalid blockHex`
-If the block hex is rejected, an `Error` must be returned with the message: `Block rejected: <reason, if known>`
+If the block hex is rejected, an `Error` must be returned with the message: `Block rejected: {{reason, if known}}`
 
 
 #### Blocks.Transactions
@@ -151,7 +153,8 @@ Idempotent.
 ]
 ```
 
-If any block id is unknown, an `Error` must be returned with the message: `Unknown blockId: <blockId>`
+If any block id is badly formatted, an `Error` must be returned with the message: `{{blockId}} is not a valid 256-bit big-endian hash`
+If any block id is unknown, an `Error` must be returned with the message: `Unknown blockId: {{blockId}}`
 
 
 ### Transactions
@@ -172,7 +175,8 @@ Idempotent.
 ]
 ```
 
-If any transaction id is unknown, an `Error` must be returned with the message: `Unknown txId: <txId>`
+If any transaction id is badly formatted, an `Error` must be returned with the message: `{{txId}} is not a valid 256-bit big-endian hash`
+If any transaction id is unknown, an `Error` must be returned with the message: `Unknown txId: {{txId}}`
 
 
 #### Transactions.Latest
@@ -207,7 +211,9 @@ Idempotent.
 ]
 ```
 
-If any transaction output is unknown, an `Error` must be returned with the message: `Unknown output: <txId>:<vout>`
+If any transaction id is badly formatted, an `Error` must be returned with the message: `{{txId}} is not a valid 256-bit big-endian hash`
+If any transaction id is unknown, an `Error` must be returned with the message: `Unknown txId: {{txId}}, it may have been lost`
+If a transaction vout does not exist, an `Error` must be returned with the message: `{{txId}} does not have a vout of {{vout}}`
 
 
 #### Transactions.Propagate
@@ -218,7 +224,8 @@ If any transaction output is unknown, an `Error` must be returned with the messa
 No response body
 ```
 
-If the transaction hex is rejected, an `Error` must be returned with the message: `Transaction rejected: <reason, if known>`
+If the txHex is badly formatted, an `Error` must be returned with the message: `Invalid txHex`
+If the transaction hex is rejected, an `Error` must be returned with the message: `Transaction rejected: {{reason, if known}}`
 
 
 #### Transactions.Status
@@ -241,4 +248,5 @@ Subjective to the node.
 ]
 ```
 
-If any transaction id is unknown, an `Error` must be returned with the message: `Unknown txId: <txId>`
+If any transaction id is badly formatted, an `Error` must be returned with the message: `{{txId}} is not a valid 256-bit big-endian hash`
+If any transaction id is unknown, an `Error` must be returned with the message: `Unknown txId: {{txId}}, it may have been lost`
