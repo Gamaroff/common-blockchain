@@ -28,7 +28,7 @@ Subjective to the node.
 	{
 		address: "mpNDUWcDcZw1Teo3LFHvr8usNdwDLKdTaY",
 		balance: 100000,
-		totalReceived: 430000,
+		received: 430000,
 		txCount: 3
 	},
 	...

@@ -13,7 +13,7 @@
         {
           "address": "String",
           "balance": "Number",
-          "totalReceived": "Number",
+          "received": "Number",
           "txCount": "Number"
         }
       ]
