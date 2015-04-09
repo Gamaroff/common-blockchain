@@ -43,7 +43,7 @@ If the any address is badly formatted or the wrong network, an `Error` must be r
 
 **Parameters**: Array of addresses, (optional) minimum block id
 
-Returns a array of transactions related to this Address (as an input or output).
+Returns an array of transactions related to this Address (as an input or output).
 Optionally filtered [by height] with a minimum block id.
 
 Subjective to the node.
@@ -66,7 +66,7 @@ If the any address is badly formatted or the wrong network, an `Error` must be r
 
 **Parameters:** Array of addresses
 
-Returns a array of unspents transaction outputs, combined with the vout, value and related address.
+Returns an array of unspents transaction outputs, combined with the vout, value and related address.
 Unspents will include unconfirmed, unspent transactions outputs.
 
 Subjective to the node.
@@ -89,12 +89,12 @@ If the any address is badly formatted or the wrong network, an `Error` must be r
 
 ### Blocks
 
-`blockHex` is the hex representation of the respective block header.  Transactions are not included; however they can be retrieved independently via the `Blocks.Transactions` end point.
-
-
 #### Blocks.Get
 
 **Parameters:** Array of block ids
+
+Returns an array of blocks including the hex representation of their headers.
+Block transactions are not included in the response; they can be retrieved independently through the `Blocks.Transactions` end point.
 
 Idempotent.
 
@@ -177,7 +177,7 @@ If any transaction id is unknown, an `Error` must be returned with the message: 
 
 #### Transactions.Latest
 
-Returns a list of the latest unconfirmed transactions ids, equivalent to this nodes mempool.
+Returns a list of the latest unconfirmed transactions ids, equivalent to the nodes mempool.
 
 Subjective to the node.
 
