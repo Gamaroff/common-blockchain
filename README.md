@@ -19,8 +19,7 @@ To convert between BTC and satoshis, see the [proper money handling page on the 
 
 **Parameters**: Array of addresses
 
-Returns an array of address summaries.
-Summaries must not exclude statistics from unconfirmed transactions.
+Warning: includes unconfirmed transactions in summary.
 
 Subjective to the node.
 
@@ -67,8 +66,7 @@ If the minimum block id is unknown, an `Error` must be returned with the message
 
 **Parameters:** Array of addresses
 
-Returns an array of unspents transaction outputs, combined with the vout, value and related address.
-Unspents will include unconfirmed, unspent transactions outputs.
+Warning: includes unconfirmed, unspent transaction outputs.
 
 Subjective to the node.
 
