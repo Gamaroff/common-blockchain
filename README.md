@@ -43,7 +43,7 @@ If any address is badly formatted or of the wrong network, an `Error` must be re
 
 **Parameters**: Array of addresses, (optional) minimum block id
 
-Returns an array of transactions related to this Address (as an input or output), otionally filtered [by height] with a minimum block id.
+Returns an array of transactions related to this Address (as an input or output), optionally filtered [by height] with a minimum block id.
 A `blockId` field with the value `null` means that no `blockId` exists yet (unconfirmed).
 
 Subjective to the node.
