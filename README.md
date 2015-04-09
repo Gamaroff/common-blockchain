@@ -36,7 +36,7 @@ Subjective to the node.
 ]
 ```
 
-If the any address is badly formatted or the wrong network, an `Error` must be returned with the message: `<address> is not a valid bitcoin address`
+If the any address is badly formatted or the wrong network, an `Error` must be returned with the message: `<address> is not a valid <network> address`
 
 
 #### Addresses.Transactions
@@ -44,7 +44,7 @@ If the any address is badly formatted or the wrong network, an `Error` must be r
 **Parameters**: Array of addresses, (optional) minimum block id
 
 Returns a array of transactions related to this Address (as an input or output).
-Optionally filtered by a minimum block id.
+Optionally filtered [by height] with a minimum block id.
 
 Subjective to the node.
 
@@ -58,8 +58,7 @@ Subjective to the node.
 ]
 ```
 
-If the minimum block id is unknown, an `Error` must be returned with the message: `Unknown blockId: <blockId>`
-If the minimum block id has been orphaned, an `Error` must be returned with the message: `Orphaned blockId: <blockId>`
+If the minimum block id is unknown, an `Error` must be returned with the message: `Unknown blockId: <blockId>, it may have been orphaned`
 If the any address is badly formatted or the wrong network, an `Error` must be returned with the message: `<address> is not a valid bitcoin address`
 
 
