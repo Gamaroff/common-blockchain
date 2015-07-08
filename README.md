@@ -2,7 +2,7 @@
 
 [![Version](http://img.shields.io/npm/v/common-blockchain.svg)](https://www.npmjs.org/package/common-blockchain)
 
-A standard REST API specification for comprehensive bitcoin block explorers.
+A standard API specification for comprehensive bitcoin block explorers.
 
 **NOTE**: For the mocha testing kit that previously resided in this module, please see [cb-tester](https://github.com/dcousens/cb-tester).
 
