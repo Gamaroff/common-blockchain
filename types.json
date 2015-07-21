@@ -73,7 +73,9 @@
       "arguments": {
         "blockHex": "String"
       },
-      "expected": {}
+      "expected": {
+        "blockId": "String"
+      }
     },
     "transactions": {
       "arguments": {
@@ -134,7 +136,9 @@
       "arguments": {
         "txHex": "String"
       },
-      "expected": {}
+      "expected": {
+        "txId": "String"
+      }
     },
     "status": {
       "arguments": {
