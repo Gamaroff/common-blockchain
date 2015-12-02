@@ -6,6 +6,10 @@ A standard REST API specification for comprehensive bitcoin block explorers.
 
 **NOTE**: For the mocha testing kit that previously resided in this module, please see [cb-tester](https://github.com/dcousens/cb-tester).
 
+### Compliant npm modules
+
+* [`cb-http-client`](https://github.com/common-blockchain/cb-http-client) - `v0.2.1`
+
 
 ## API Specification
 
