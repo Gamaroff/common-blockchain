@@ -92,17 +92,16 @@ If any address is badly formatted or of the wrong network, an `Error` must be re
 
 **Parameters:** Array of block ids
 
-Returns an array of blocks including the hex representation of their headers.
+Returns a block id mapped result with `header` and `height` fields.
 Block transactions are not included in the response; they can be retrieved independently through the `Blocks.Transactions` end point.
 
 Idempotent.
 
 ``` javascript
 [
-	{
-		"blockHeight": 314246,
-		"blockHex": "020000003bef0d0b88737698572aa5c78 ...",
-		"blockId": "00000000000000001b701ecd0cf2b7a7742a320e9a06a506227ee345b5735d13"
+	"00000000000000001b701ecd0cf2b7a7742a320e9a06a506227ee345b5735d13": {
+		"header": "0400000042cb79fa6b45627ccb8d3fe2e4fde26ed58385230cc7d1020000000000000000330ff5cf54194e776241ee347c0a60bc23b8ae566b131a2b437ef2cb19cb3d0aa34f98561bb30918d68de3ae",
+		"height": 314246
 	}
 	...
 ]
