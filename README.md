@@ -42,24 +42,21 @@ If any address is badly formatted or of the wrong network, an `Error` must be re
 
 **Parameters**: Array of addresses, (optional) minimum block id
 
-Returns an array of transactions related to this Address (as an input or output), optionally filtered [by height] with a minimum block id.
-A `blockId` field with the value `null` means that no `blockId` exists yet (unconfirmed).
+Returns an array of transactions related to this Address (as an input or output), optionally filtered with a minimum [by height] block id.
+
+Warning: includes unconfirmed transactions.
 
 Subjective to the node.
 
 ``` javascript
 [
-	{
-		blockId: "00000000000000001b701ecd0cf2b7a7742a320e9a06a506227ee345b5735d13",
-		txId: "c7736a0a0046d5a8cc61c8c3c2821d4d7517f5de2bc66a966011aaa79965ffba"
-	},
-	...
+	"c7736a0a0046d5a8cc61c8c3c2821d4d7517f5de2bc66a966011aaa79965ffba"
 ]
 ```
 
-If any address is badly formatted or of the wrong network, an `Error` must be returned with the message: `{{address}} is not a valid {{network}} address`
-If the minimum block id is badly formatted, an `Error` must be returned with the message: `{{blockId}} is not a valid 256-bit big-endian hash`
-If the minimum block id is unknown, an `Error` must be returned with the message: `Unknown blockId: {{blockId}}, it may have been orphaned`
+If any address is badly formatted or of the wrong network, an `Error` must be returned with the message: `{{address}} is not a valid {{network}} address`.
+If the minimum block id is badly formatted, an `Error` must be returned with the message: `{{blockId}} is not a valid 256-bit hash`.
+If the minimum block id is unknown, an `Error` must be returned with the message: `Unknown blockId: {{blockId}}`.
 
 
 #### Addresses.Unspents
@@ -83,7 +80,7 @@ Subjective to the node.
 ]
 ```
 
-If any address is badly formatted or of the wrong network, an `Error` must be returned with the message: `{{address}} is not a valid {{network}} address`
+If any address is badly formatted or of the wrong network, an `Error` must be returned with the message: `{{address}} is not a valid {{network}} address`.
 
 
 ### Blocks
@@ -107,13 +104,13 @@ Idempotent.
 ]
 ```
 
-If any block id is badly formatted, an `Error` must be returned with the message: `{{blockId}} is not a valid 256-bit big-endian hash`
-If any block id is unknown, an `Error` must be returned with the message: `Unknown blockId: {{blockId}}, it may have been orphaned`
+If any block id is badly formatted, an `Error` must be returned with the message: `{{blockId}} is not a valid 256-bit hash`.
+If any block id is unknown, an `Error` must be returned with the message: `Unknown blockId: {{blockId}}`.
 
 
 #### Blocks.Latest
 
-Returns the tip of the nodes best-chain
+Returns the tips block id for the local best-chain.
 
 Subjective to the node.
 
@@ -130,55 +127,51 @@ Subjective to the node.
 No response body
 ```
 
-If the block hex is badly formatted, an `Error` must be returned with the message: `Invalid blockHex`
-If the block hex is rejected, an `Error` must be returned with the message: `Block rejected: {{reason, if known}}`
+If the block hex is badly formatted, an `Error` must be returned with the message: `Invalid blockHex`.
+If the block hex is rejected, an `Error` must be returned with the message: `Block rejected: {{reason}}`.
 
 
 #### Blocks.Transactions
 
-**Parameters:** Array of block ids (big-endian block hashes)
+**Parameters:** Array of block ids (reverse-byte-order block hashes)
 
 Idempotent.
 
 ``` javascript
 [
-	{
-		blockId: "00000000000000001b701ecd0cf2b7a7742a320e9a06a506227ee345b5735d13",
-		txId: "c7736a0a0046d5a8cc61c8c3c2821d4d7517f5de2bc66a966011aaa79965ffba"
-	},
+	"00000000000000001b701ecd0cf2b7a7742a320e9a06a506227ee345b5735d13": [
+		"c7736a0a0046d5a8cc61c8c3c2821d4d7517f5de2bc66a966011aaa79965ffba"
+	],
 	...
 ]
 ```
 
-If any block id is badly formatted, an `Error` must be returned with the message: `{{blockId}} is not a valid 256-bit big-endian hash`
-If any block id is unknown, an `Error` must be returned with the message: `Unknown blockId: {{blockId}}`
+If any block id is badly formatted, an `Error` must be returned with the message: `{{blockId}} is not a valid 256-bit hash`.
+If any block id is unknown, an `Error` must be returned with the message: `Unknown blockId: {{blockId}}`.
 
 
 ### Transactions
 
 #### Transactions.Get
 
-**Parameters:** Array of transaction ids (big-endian transaction hashes)
+**Parameters:** Array of transaction ids (reverse-byte-order transaction hashes)
 
 Idempotent.
 
 ``` javascript
 [
-	{
-		txHex: "01000000011c1020c1114820e7c44e12e804aec5f4af1e8a6aad3c446c4cfc8aa53e61f73d010000008 ...",
-		txId: "c7736a0a0046d5a8cc61c8c3c2821d4d7517f5de2bc66a966011aaa79965ffba"
-	},
+	"c7736a0a0046d5a8cc61c8c3c2821d4d7517f5de2bc66a966011aaa79965ffba": "01000000011c1020c1114820e7c44e12e804aec5f4af1e8a6aad3c446c4cfc8aa53e61f73d010000008 ...",
 	...
 ]
 ```
 
-If any transaction id is badly formatted, an `Error` must be returned with the message: `{{txId}} is not a valid 256-bit big-endian hash`
+If any transaction id is badly formatted, an `Error` must be returned with the message: `{{txId}} is not a valid 256-bit hash`
 If any transaction id is unknown, an `Error` must be returned with the message: `Unknown txId: {{txId}}`
 
 
 #### Transactions.Latest
 
-Returns a list of the latest unconfirmed transactions ids, equivalent to the nodes mempool.
+Returns a list of the latest unconfirmed transactions ids, equivalent to the local mempool.
 
 Subjective to the node.
 
@@ -208,9 +201,9 @@ Idempotent.
 ]
 ```
 
-If any transaction id is badly formatted, an `Error` must be returned with the message: `{{txId}} is not a valid 256-bit big-endian hash`
-If any transaction id is unknown, an `Error` must be returned with the message: `Unknown txId: {{txId}}, it may have been lost`
-If a transaction vout does not exist, an `Error` must be returned with the message: `{{txId}} does not have a vout of {{vout}}`
+If any transaction id is badly formatted, an `Error` must be returned with the message: `{{txId}} is not a valid 256-bit hash`.
+If any transaction id is unknown, an `Error` must be returned with the message: `Unknown txId: {{txId}}`.
+If a transaction vout does not exist, an `Error` must be returned with the message: `{{txId}} does not have a vout of {{vout}}`.
 
 
 #### Transactions.Propagate
@@ -222,30 +215,25 @@ No response body
 ```
 
 If the txHex is badly formatted, an `Error` must be returned with the message: `Invalid txHex`
-If the transaction hex is rejected, an `Error` must be returned with the message: `Transaction rejected: {{reason, if known}}`
+If the transaction hex is rejected, an `Error` must be returned with the message: `Transaction rejected: {{reason}}`
 
 
 #### Transactions.Status
 
-**Parameters:** Array of transaction ids (big-endian transaction hashes)
+**Parameters:** Array of transaction ids (reverse-byte-order transaction hashes)
 
-A `blockId` field with the value `null` means that no `blockId` exists yet (unconfirmed).
+Returns a `txId` mapped result to respective `blockId`s, if known.
+Transactions with no respective `blockId` **must** be omitted.
 
 Subjective to the node.
+Respects local best-chain.
 
 ``` javascript
 [
-	{
-		blockId: "00000000000000001b701ecd0cf2b7a7742a320e9a06a506227ee345b5735d13",
-		txId: "c7736a0a0046d5a8cc61c8c3c2821d4d7517f5de2bc66a966011aaa79965ffba"
-	},
-	{
-		blockId: null,
-		txId: "a0ff943d3f644d8832b1fa74be4d0ad2577615dc28a7ef74ff8c271b603a082a"
-	},
+	"c7736a0a0046d5a8cc61c8c3c2821d4d7517f5de2bc66a966011aaa79965ffba": "00000000000000001b701ecd0cf2b7a7742a320e9a06a506227ee345b5735d13",
 	...
 ]
 ```
 
-If any transaction id is badly formatted, an `Error` must be returned with the message: `{{txId}} is not a valid 256-bit big-endian hash`
-If any transaction id is unknown, an `Error` must be returned with the message: `Unknown txId: {{txId}}, it may have been lost`
+If any transaction id is badly formatted, an `Error` must be returned with the message: `{{txId}} is not a valid 256-bit hash`.
+If any transaction id is unknown, an `Error` must be returned with the message: `Unknown txId: {{txId}}`.
